@@ -1,0 +1,47 @@
+there are 4 category and all the brands are having there products in almost all categories
+Books
+BookWorld Biography           30
+SoundWave Cookbook            29
+TechPro Textbook              25
+ActiveWear Textbook           23
+BookWorld Cookbook            20
+
+Electronics
+ActiveWear Smartwatch              40
+SoundWave Headphones               38
+TechPro Headphones                 17
+ActiveWear Smartphone              15
+SoundWave Smartwatch               15
+
+HomeDecor
+ActiveWear Rug                29
+HomeSense Desk Lamp           28
+SoundWave Desk Lamp           23
+ActiveWear Cookware Set       21
+TechPro Vase                  21
+
+Clothing
+ActiveWear Jacket           26
+TechPro T-Shirt             24
+HomeSense T-Shirt           21
+BookWorld Sweater           19
+
+
+Top 5 brands in each region
+ActiveWear       142
+BookWorld         75
+ComfortLiving     65
+HomeSense         98
+SoundWave        118
+TechPro           62
+
+Category is also same in each one
+Asia Category
+Books          120
+Clothing       166
+Electronics    132
+Home Decor     142
+
+
+
+
