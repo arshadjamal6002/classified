@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reviews Sentiment Analysis</title>
+        <style>
+            /* Overall page style */
+            body {
+                font-family: 'Arial', sans-serif;
+                background-image: url('static/flight_image.jpeg'); /* Replace with the path to your image */
+                background-size: cover; /* Ensures the image covers the entire background */
+                background-position: center; /* Centers the image */
+                background-repeat: no-repeat; /* Prevents the image from repeating */
+                color: #4A148C; /* Purple text color */
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end; /* Aligns the content towards the bottom */
+                align-items: center; /* Centers the content horizontally */
+                height: 100vh;
+            }
+
+            h1 {
+                color: #D81B60; /* Dark pink color for the header */
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                color: #8E24AA; /* A soft purple-pink */
+                font-size: 28px;
+                margin-top: 20px;
+            }
+
+            /* Style the form container */
+            form {
+                background-color: #fff; /* White background for the form */
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 400px;
+                text-align: center;
+                margin-bottom: 20px; /* Adds space from the bottom */
+            }
+
+            label {
+                font-size: 18px;
+                color: #7B1FA2;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 2px solid #F8BBD0; /* Soft pink border */
+                border-radius: 8px;
+                resize: none;
+                font-size: 16px;
+                margin-bottom: 20px;
+                background-color: #F8BBD0; /* Light pink background */
+            }
+
+            input[type="submit"] {
+                background-color: #D81B60; /* Dark pink button */
+                color: white;
+                font-size: 18px;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #C2185B; /* Darker pink on hover */
+            }
+
+            /* Styling for the result display */
+            .result {
+                margin-top: 30px;
+                padding: 20px;
+                background-color: #F8BBD0;
+                border-radius: 12px;
+                text-align: center;
+                width: 300px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .positive {
+                color: #4CAF50; /* Green for positive sentiment */
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .negative {
+                color: #D32F2F; /* Red for negative sentiment */
+                font-size: 24px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Flight Reviews Sentiment Analysis</h1>
+        <form action="/predict" method="POST">
+            <label for="text">Write your review:</label><br>
+            <textarea name="text" id="text" rows="5" cols="40"></textarea><br>
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if result is not none %}
+            <div class="result">
+                {% if result == 1 %}
+                    <h2 class="positive">Positive Sentiment</h2>
+                {% elif result == 0 %}
+                    <h2 class="negative">Negative Sentiment</h2>
+                {% endif %}
+            </div>
+        {% endif %}
+    </body>
+</html>
