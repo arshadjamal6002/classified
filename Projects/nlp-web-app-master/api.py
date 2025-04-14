@@ -54,4 +54,48 @@ def extract_entities_and_types(response):
 # for entity in entities:
 #     print(f"Entity: {entity['entity']}, Type: {entity['type']}")
 
+def perform_sentiment_analysis(text):
     
+
+    # Call Dandelion API to get sentiment analysis
+    url = "https://api.dandelion.eu/datatxt/sent/v1/"
+    params = {
+        'lang': 'en',
+        'text': text,
+        'token': '38e2e49988e24393a759010c502b7aeb'
+    }
+
+    # Make the GET request to Dandelion API
+    response = requests.get(url, params=params)
+    sentiment_data = response.json()  # Convert the response to JSON
+
+    # Check if sentiment analysis is present in the response
+    if 'sentiment' in sentiment_data:
+        sentiment = sentiment_data['sentiment']['type']  # The sentiment type (positive, neutral, or negative)
+        score = sentiment_data['sentiment']['score']  # The sentiment score
+    else:
+        sentiment = "Error"
+        score = "N/A"
+    return sentiment, score
+
+def perform_text_similarity(text1,text2):
+
+
+    # Call Dandelion API to get text similarity
+    url = "https://api.dandelion.eu/datatxt/sim/v1/"
+    params = {
+        'text1': text1,
+        'text2': text2,
+        'token': '38e2e49988e24393a759010c502b7aeb'
+    }
+
+    # Make the GET request to Dandelion API
+    response = requests.get(url, params=params)
+    similarity_data = response.json()  # Convert the response to JSON
+
+    # Extract similarity score from the response
+    if 'similarity' in similarity_data:
+        similarity_score = similarity_data['similarity']
+    else:
+        similarity_score = "Error"
+    return similarity_score

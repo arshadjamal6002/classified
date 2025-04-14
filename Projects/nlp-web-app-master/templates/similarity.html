@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NER</title>
+</head>
+<body>
+
+  <form action="/perform_similarity" method="post">
+      <label>Type your first text here</label><br>
+      <textarea name="similarity_text1"></textarea><br><br>
+
+      <label>Type your second text here</label><br>
+      <textarea name="similarity_text2"></textarea><br>
+      <input type="submit" value="Perform SA">
+  </form>
+
+
+    {% if response %}
+    <div>
+        <h2>Similarity Result:</h2>
+        <p><strong>Score:</strong> {{ response }}</p>
+        
+    </div>  
+    {% endif %}

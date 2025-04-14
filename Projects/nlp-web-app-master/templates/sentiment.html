@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NER</title>
+</head>
+<body>
+
+  <form action="/perform_sentiment" method="post">
+      <label>Type your text here</label><br>
+      <textarea name="sentiment_text"></textarea><br>
+      <input type="submit" value="Perform SA">
+  </form>
+
+
+    {% if response %}
+    <div>
+        <h2>Sentiment Result:</h2>
+        <p><strong>Sentiment:</strong> {{ response }}</p>
+        <p><strong>Score:</strong> {{ score }}</p>
+    </div>  
+    {% endif %}
+
+  
+
+
+
+
+</body>
+</html>

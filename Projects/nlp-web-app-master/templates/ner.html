@@ -13,7 +13,10 @@
   </form>
 
   <div>
-      <h2>Extracted Entities:</h2>
+    {% if response %}
+    <h2>Extracted Entities:</h2>
+    {% endif %}
+      
       <ul>
           {% for entity in response %}
               <li>{{ entity }}</li>

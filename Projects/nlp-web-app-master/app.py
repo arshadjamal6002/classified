@@ -70,5 +70,42 @@ def perform_ner():
         return render_template('ner.html',response=entities)
     else:
         return redirect('/')
+    
+@app.route('/sentiment')
+def sentiment():
+    if session:
+        return render_template('sentiment.html')
+    else:
+        return redirect('/')
+
+@app.route('/perform_sentiment',methods=['post'])
+def perform_sentiment():
+    if session:
+        text = request.form.get('sentiment_text')
+        sentiment, score = api.perform_sentiment_analysis(text)
+
+
+        return render_template('sentiment.html',response=sentiment, score=score)
+    else:
+        return redirect('/')
+    
+@app.route('/similarity')
+def similarity():
+    if session:
+        return render_template('similarity.html')
+    else:
+        return redirect('/')
+    
+@app.route('/perform_similarity',methods=['post'])
+def perform_similarity():
+    if session:
+        text1 = request.form.get('similarity_text1')
+        text2 = request.form.get('similarity_text2')
+        score = api.perform_text_similarity(text1,text2)
+
+
+        return render_template('similarity.html',response=score)
+    else:
+        return redirect('/')
 
 app.run(debug=True)
